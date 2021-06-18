@@ -105,7 +105,7 @@ class Movie extends Component {
             return (
                 <div>
 
-                    <div className="ButtonBar">
+                    <div className="">
                         <Button variant="dark" onClick={(e) => this.sort_genre(e)}>sort by genre</Button>
                         <Button variant="dark" onClick={(e) => this.sort_years(e)}>sort by year</Button>
                     </div>

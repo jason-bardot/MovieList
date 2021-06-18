@@ -56,7 +56,7 @@ class Actor extends Component {
     rendersItems(items) {
         return (
             <div>
-
+                <div className="center">
                 <DropdownButton variant="secondary" id="dropdown-basic-button" title={this.state.actor === null ? "List of Actor" : this.state.actor.name}>
                     {this.state.list_name.map((item, index) => {
                         return (
@@ -64,6 +64,7 @@ class Actor extends Component {
                         );
                     })}
                 </DropdownButton>
+                </div>
                 {this.state.actor !== null ?
                     <Table striped bordered hover>
                         <thead>
@@ -79,7 +80,7 @@ class Actor extends Component {
                                     <tr key={item.id}>
                                         <td>{item.title}</td>
                                         <td>{this.state.genres[item.genre_ids[0]]}</td>
-                                        <td>{item.release_date.slice(0, 4)}</td>
+                                        <td>{item.release_date==!null?item.release_date.slice(0, 4):<div>unknow</div>}</td>
                                     </tr>
                                 );
                             })}
@@ -88,40 +89,6 @@ class Actor extends Component {
                     </Table> :
                     <div></div>
                 }
-                {/*
-                <Table striped bordered hover>
-                    
-                    <thead>
-                        <tr>
-                            {this.state.head.map((item, index) => {
-                                return <th>{item}</th>;
-                            })}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.list_name.map((item, index) => {
-                            return (
-                                <tr >
-                                    <td><div className="Click" value={item} onClick={() => this.handleClick(item)}>{item}</div></td>
-                                    <td>{this.state.actor !== null && item === this.state.actor.name ?
-                                        (this.state.actor.known_for.map((item, index) => {
-                                            return (
-                                                <tr key={item.id}>
-                                                    <td>{item.title}</td>
-                                                </tr>
-                                            );
-                                        })) :
-                                        (<div></div>)
-
-                                    }</td>
-                                </tr>
-                            );
-                        })}
-
-                    </tbody>
-                    
-                </Table>
-                */}
             </div>
         )
     }
